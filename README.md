@@ -18,7 +18,7 @@ Attributes include:
 > ⚠️ Note: If you upload the dataset, mention proper credits. Avoid sharing copyrighted data.
 
 ## 🤖 Model Used
-- **Logistic Regression** (baseline)
+- **SVM** (baseline)
 - Data Preprocessing with **StandardScaler**
 - 80%-20% train-test split
 
