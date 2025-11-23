@@ -39,50 +39,6 @@ Diabetes-Prediction-ML/
 ├── models/
 ├── requirements.txt
 └── README.md
-### CODE
-```bash
 
----
-
-### 💾 Save Your Model and Scaler
-
-In `train_model.py`:
-
-```python
-import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from sklearn.linear_model import LogisticRegression
-import joblib
-
-df = pd.read_csv("data/diabetes.csv")
-
-X = df.drop('Outcome', axis=1)
-y = df['Outcome']
-
-scaler = StandardScaler()
-X_scaled = scaler.fit_transform(X)
-
-model = LogisticRegression()
-model.fit(X_scaled, y)
-
-joblib.dump(model, "models/diabetes_model.pkl")
-joblib.dump(scaler, "models/scaler.pkl")
-import numpy as np
-import joblib
-
-model = joblib.load("models/diabetes_model.pkl")
-scaler = joblib.load("models/scaler.pkl")
-
-input_data = (1,103,30,38,83,43.3,0.183,33)
-input_array = np.asarray(input_data).reshape(1, -1)
-
-input_scaled = scaler.transform(input_array)
-prediction = model.predict(input_scaled)
-
-if prediction[0] == 1:
-    print("The patient is diabetic")
-else:
-    print("The patient is not diabetic")
 
 
